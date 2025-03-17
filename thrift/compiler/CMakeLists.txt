@@ -93,7 +93,6 @@ target_link_libraries(
 # The base compiler infrastructure library
 add_library(
   compiler_base
-  STATIC
 
   detail/system.cc
   detail/pluggable_functions.cc
@@ -168,7 +167,6 @@ target_link_libraries(
 
 add_library(
   whisker
-  STATIC
 
   whisker/ast.cc
   whisker/dsl.cc
@@ -184,7 +182,7 @@ add_library(
 )
 target_link_libraries(
   whisker
-  fmt::fmt
+  PUBLIC fmt::fmt
   Folly::folly
   compiler_base
 )
@@ -239,7 +237,6 @@ install(
   TARGETS thrift1
     compiler_ast
     compiler_base
-    compiler_lib
     compiler
     whisker
     common
