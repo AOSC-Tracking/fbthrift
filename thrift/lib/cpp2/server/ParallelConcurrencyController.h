@@ -90,7 +90,7 @@ class ParallelConcurrencyControllerBase : public ConcurrencyControllerBase,
  protected:
   const RequestExecutionMode requestExecutionMode_;
 
-  struct Counters {
+  struct __attribute__((aligned(8))) Counters {
     constexpr Counters() noexcept = default;
     // Number of requests that are being executed
     // by the executor
